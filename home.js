@@ -40,8 +40,7 @@ function addDataToUI(videosList){
             <p>${snippet.title}</p>
             <b>${snippet.channelTitle}</b>
         `;
-        container.appendChild(videoElement);
+        container.appendChild(videoElement)
     })
-
 
 }
