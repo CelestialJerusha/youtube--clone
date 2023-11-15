@@ -41,6 +41,7 @@ async function getSearchResult(searchString){
 
 
 function addDataToUI(videosList){
+    container.innerHTML = '';
     videosList.forEach((video) => {
         const {snippet} = video;
         const videoElement = document.createElement("div");
@@ -53,7 +54,7 @@ function addDataToUI(videosList){
                 <b>${snippet.channelTitle}</b>
         </div>
         `;
-        container.appendChild(videoElement)
+        container.appendChild(videoElement);
     })
 
 }
