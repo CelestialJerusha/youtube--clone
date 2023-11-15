@@ -65,7 +65,7 @@ function addDetailstoDOM(videoInfo, channelDetails) {
         </div>
         <button class="right">Subscribe</button>
       </div>
-
+     
 
     `
     document.body.appendChild(container);
