@@ -9,6 +9,17 @@ const searchButton = document.getElementById("search");
 const searchInput = document.getElementById("search-input");
 const container = document.getElementById("container");
 
+async function getVideos(){
+    let url = `${baseUrl}/search?key=${apiKey}&part=snippet&maxResults=30`
+    console.log(url);
+    const response = await fetch(url, {method:"GET"});
+    const result = await response.json();
+    console.log(result.items);
+
+    addDataToUI(result.items);
+}
+getVideos()
+
 searchButton.addEventListener("click",() => {
     let searchString = searchInput.value.trim();
     //console.log(searchString);
@@ -23,7 +34,7 @@ async function getSearchResult(searchString){
     console.log(url);
     const response = await fetch(url, {method:"GET"});
     const result = await response.json();
-    console.log(result);
+    console.log(result.items);
 
     addDataToUI(result.items);
 }
@@ -32,11 +43,9 @@ async function getSearchResult(searchString){
 function addDataToUI(videosList){
     videosList.forEach((video) => {
         const {snippet} = video;
-        // console.log(video.id.videoId)
         const videoElement = document.createElement("div");
         videoElement.className = "video";
         // console.log(video.id.videoId)
-        // console.log(video.id);
         videoElement.innerHTML = `
         <div onclick="openVideo('${video.id.videoId}','${snippet.channelId}')">
             <img src="${snippet.thumbnails.high.url}">

@@ -31,9 +31,9 @@ function addDetailstoDOM(videoInfo, channelDetails) {
     container.innerHTML = `
     
       <div id="video">
-      <iframe id="player" type="text/html" width="1240" height="290"
-      src="https://www.youtube.com/embed/${videoId}"
-      frameborder="0"></iframe>
+        <iframe id="player" type="text/html" width="1240" height="290"
+        src="https://www.youtube.com/embed/${videoId}"
+        frameborder="0"></iframe>
       </div>
       
       <div class="statistics">

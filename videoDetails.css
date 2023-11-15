@@ -7,8 +7,12 @@ body{
     background-color: black;
 }
 #video{
-    height: 40vh;
-    border: 2px solid red;
+    padding: 30px;
+    height: 70vh;
+}
+#player{
+    height: 70vh;
+    width: 100%;
 }
 .statistics{
     border: 0.3px solid #AAA;
