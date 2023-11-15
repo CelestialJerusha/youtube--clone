@@ -20,27 +20,37 @@ searchButton.addEventListener("click",() => {
 
 async function getSearchResult(searchString){
     let url = `${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=10`
-    //console.log(url);
+    console.log(url);
     const response = await fetch(url, {method:"GET"});
     const result = await response.json();
-    //console.log(result);
+    console.log(result);
 
     addDataToUI(result.items);
 }
 
+
 function addDataToUI(videosList){
     videosList.forEach((video) => {
         const {snippet} = video;
-
+        // console.log(video.id.videoId)
         const videoElement = document.createElement("div");
         videoElement.className = "video";
-
+        // console.log(video.id.videoId)
+        // console.log(video.id);
         videoElement.innerHTML = `
-        <img src="${snippet.thumbnails.high.url}">
-            <p>${snippet.title}</p>
-            <b>${snippet.channelTitle}</b>
+        <div onclick="openVideo('${video.id.videoId}','${snippet.channelId}')">
+            <img src="${snippet.thumbnails.high.url}">
+                <p>${snippet.title}</p>
+                <b>${snippet.channelTitle}</b>
+        </div>
         `;
         container.appendChild(videoElement)
     })
 
+}
+
+function openVideo(videoId,channelId){
+    localStorage.setItem("videoId", videoId);
+    localStorage.setItem("channelId", channelId);
+    window.open("videoDetails.html");
 }
