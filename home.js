@@ -10,7 +10,7 @@ const searchInput = document.getElementById("search-input");
 const container = document.getElementById("container");
 
 async function getVideos(){
-    let url = `${baseUrl}/search?key=${apiKey}&part=snippet&maxResults=30`
+    let url = `${baseUrl}/search?key=${apiKey}&part=snippet&maxResults=10`
     console.log(url);
     const response = await fetch(url, {method:"GET"});
     const result = await response.json();
@@ -41,7 +41,6 @@ async function getSearchResult(searchString){
 
 
 function addDataToUI(videosList){
-    container.innerHTML = '';
     videosList.forEach((video) => {
         const {snippet} = video;
         const videoElement = document.createElement("div");
@@ -54,7 +53,7 @@ function addDataToUI(videosList){
                 <b>${snippet.channelTitle}</b>
         </div>
         `;
-        container.appendChild(videoElement);
+        container.appendChild(videoElement)
     })
 
 }
