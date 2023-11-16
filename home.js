@@ -44,6 +44,7 @@ async function getSearchResult(searchString){
 function addDataToUI(videosList){
     container.innerHTML = '';
     videosList.forEach((video) => {
+        // const snippet = video.snippet;
         const {snippet} = video;
         const videoElement = document.createElement("div");
         videoElement.className = "video";
