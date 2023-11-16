@@ -1,4 +1,5 @@
-const apiKey = "AIzaSyDSwVSoW595O1GdRCL0fFksI3EvDQnI6wI";
+// const apiKey = "AIzaSyDSwVSoW595O1GdRCL0fFksI3EvDQnI6wI";
+const apiKey = "AIzaSyBBI_FA_9qRLYGY6gWAoAOfR6NUFqAzXX4"
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
 /**
@@ -10,7 +11,7 @@ const searchInput = document.getElementById("search-input");
 const container = document.getElementById("container");
 
 async function getVideos(){
-    let url = `${baseUrl}/search?key=${apiKey}&part=snippet&maxResults=10`
+    let url = `${baseUrl}/search?key=${apiKey}&part=snippet&maxResults=30`
     console.log(url);
     const response = await fetch(url, {method:"GET"});
     const result = await response.json();
@@ -34,7 +35,7 @@ async function getSearchResult(searchString){
     console.log(url);
     const response = await fetch(url, {method:"GET"});
     const result = await response.json();
-    console.log(result.items);
+    console.log(result);
 
     addDataToUI(result.items);
 }
